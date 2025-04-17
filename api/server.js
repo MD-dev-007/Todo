@@ -16,10 +16,14 @@ app.use(express.urlencoded({extended: true}));
 
 // Configure CORS
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://md-dev-007.github.io'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
+    origin: '*', // Allow all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: false
 }));
+
+// Add CORS headers manually for preflight requests
+app.options('*', cors());
 
 app.get("/", (req, res) => {
     res.json("hello world");

@@ -16,7 +16,7 @@ app.use(express.urlencoded({extended: true}));
 
 // Configure CORS
 app.use(cors({
-    origin: 'http://localhost:5173', // Vite's default port
+    origin: ['http://localhost:5173', 'https://md-dev-007.github.io'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));

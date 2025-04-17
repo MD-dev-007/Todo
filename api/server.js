@@ -13,11 +13,13 @@ const app = express();
 
 // CORS configuration
 const corsOptions = {
-    origin: 'https://md-dev-007.github.io',
+    origin: ['https://md-dev-007.github.io', 'http://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With'],
+    exposedHeaders: ['Content-Range', 'X-Content-Range'],
     credentials: false,
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
+    preflightContinue: false
 };
 
 // Apply CORS middleware

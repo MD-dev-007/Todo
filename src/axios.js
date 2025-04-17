@@ -7,39 +7,21 @@ const axiosInstance = axios.create({
     headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
-    },
-    withCredentials: false
+    }
 });
 
-// Add a request interceptor
-axiosInstance.interceptors.request.use(
-    config => {
-        // Add any request headers here
-        config.headers['Access-Control-Allow-Origin'] = '*';
-        return config;
-    },
-    error => {
-        return Promise.reject(error);
-    }
-);
-
-// Add a response interceptor
+// Add a response interceptor for better error handling
 axiosInstance.interceptors.response.use(
     response => {
         return response;
     },
     error => {
         if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
             console.error('Error response:', error.response.data);
             console.error('Error status:', error.response.status);
-            console.error('Error headers:', error.response.headers);
         } else if (error.request) {
-            // The request was made but no response was received
             console.error('Error request:', error.request);
         } else {
-            // Something happened in setting up the request that triggered an Error
             console.error('Error message:', error.message);
         }
         return Promise.reject(error);
@@ -94,5 +76,3 @@ export const fetchOverdueTodos = async () => {
         throw err;
     }
 }
-
-export default axiosInstance;

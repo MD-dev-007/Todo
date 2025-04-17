@@ -41,7 +41,7 @@ TODO-MERN/
 
 1. Clone the repository
 2. Install dependencies:
-   
+   ```bash
    # Install backend dependencies
    cd api
    npm install
@@ -49,10 +49,10 @@ TODO-MERN/
    # Install frontend dependencies
    cd ../src
    npm install
-   
+   ```
 3. Set up environment variables
 4. Start the development servers:
-   
+   ```bash
    # Start backend server
    cd api
    npm start
@@ -60,7 +60,7 @@ TODO-MERN/
    # Start frontend server
    cd ../src
    npm run dev
-   
+   ```
 
 ## Deployment
 
